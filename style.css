@@ -1,0 +1,1547 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+    --red: #b40000;
+    --red-light: #ff2020;
+    --red-dark: #540000;
+    --black: #030303;
+    --black-2: #080808;
+    --card: rgba(13, 13, 13, 0.78);
+    --border: rgba(190, 0, 0, 0.28);
+    --text: #f2f2f2;
+    --muted: #888;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background:
+        radial-gradient(circle at 50% -10%, rgba(130, 0, 0, .22), transparent 35%),
+        radial-gradient(circle at 0 50%, rgba(120, 0, 0, .12), transparent 28%),
+        radial-gradient(circle at 100% 70%, rgba(120, 0, 0, .12), transparent 28%),
+        #020202;
+    color: var(--text);
+    overflow-x: hidden;
+}
+
+
+/* =====================================
+   BLOOD EDGES — كامل الصفحة
+===================================== */
+
+.blood-edge {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 95px;
+    z-index: 2;
+    pointer-events: none;
+    opacity: .82;
+}
+
+.blood-left {
+    left: 0;
+}
+
+.blood-right {
+    right: 0;
+    transform: scaleX(-1);
+}
+
+.blood-edge::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 70px;
+    height: 100%;
+
+    background:
+        radial-gradient(circle at 5px 9%, rgba(145,0,0,.9) 0 3px, transparent 4px),
+        radial-gradient(circle at 25px 23%, rgba(95,0,0,.85) 0 7px, transparent 8px),
+        radial-gradient(circle at 10px 37%, rgba(180,0,0,.7) 0 4px, transparent 5px),
+        radial-gradient(circle at 38px 57%, rgba(105,0,0,.8) 0 8px, transparent 9px),
+        radial-gradient(circle at 14px 78%, rgba(170,0,0,.65) 0 5px, transparent 6px),
+        linear-gradient(
+            90deg,
+            rgba(105,0,0,.8),
+            rgba(55,0,0,.42) 35%,
+            transparent 75%
+        );
+
+    filter: blur(.25px);
+}
+
+.blood-edge::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 55px;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(170,0,0,.52),
+            transparent
+        );
+
+    opacity: .5;
+}
+
+.drop {
+    position: absolute;
+    width: 7px;
+
+    border-radius: 0 0 60% 60%;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #8e0000,
+            #3e0000
+        );
+
+    box-shadow:
+        0 0 8px rgba(150,0,0,.5),
+        0 0 18px rgba(110,0,0,.2);
+}
+
+.drop::after {
+    content: "";
+
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 5px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #620000;
+}
+
+.d1 {
+    top: 12%;
+    left: 19px;
+    height: 55px;
+}
+
+.d2 {
+    top: 27%;
+    left: 43px;
+    height: 100px;
+}
+
+.d3 {
+    top: 43%;
+    left: 10px;
+    height: 38px;
+}
+
+.d4 {
+    top: 61%;
+    left: 30px;
+    height: 125px;
+}
+
+.d5 {
+    top: 76%;
+    left: 7px;
+    height: 65px;
+}
+
+.d6 {
+    top: 90%;
+    left: 42px;
+    height: 90px;
+}
+
+
+/* =====================================
+   BACKGROUND
+===================================== */
+
+.background-glow {
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: -1;
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            transparent 0%,
+            rgba(100,0,0,.06) 35%,
+            transparent 70%
+        );
+}
+
+
+/* =====================================
+   NAVBAR
+===================================== */
+
+.navbar {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 78px;
+
+    z-index: 20;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 6%;
+
+    background: rgba(2,2,2,.82);
+
+    backdrop-filter: blur(18px);
+
+    border-bottom:
+        1px solid rgba(180,0,0,.18);
+}
+
+.nav-logo {
+    font-size: 19px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.nav-logo span {
+    color: var(--red-light);
+}
+
+.nav-links {
+    display: flex;
+    gap: 8px;
+}
+
+.nav-links a {
+    color: #aaa;
+
+    text-decoration: none;
+
+    padding: 10px 15px;
+
+    border-radius: 7px;
+
+    transition: .25s;
+
+    font-size: 14px;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: white;
+
+    background:
+        rgba(150,0,0,.13);
+
+    box-shadow:
+        inset 0 -2px var(--red-light);
+}
+
+
+/* =====================================
+   HERO
+===================================== */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    position: relative;
+
+    padding:
+        130px 20px 90px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+}
+
+.welcome-text {
+    color: #777;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    letter-spacing: 8px;
+
+    margin-bottom: 12px;
+}
+
+.hero-title-wrap {
+    position: relative;
+
+    display: inline-block;
+}
+
+
+/* GODFATHER أصغر */
+
+.godfather-title {
+    position: relative;
+
+    z-index: 3;
+
+    font-size:
+        clamp(52px, 7.5vw, 100px);
+
+    line-height: .9;
+
+    font-weight: 900;
+
+    letter-spacing: 5px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ff2929 0%,
+            #b00000 32%,
+            #4a0000 62%,
+            #050505 100%
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+
+    filter:
+        drop-shadow(0 5px 0 #070707)
+        drop-shadow(
+            0 0 16px rgba(190,0,0,.45)
+        );
+}
+
+.godfather-title span:last-child {
+    color: transparent;
+}
+
+
+/* الدم حول الكلمة */
+
+.hero-title-wrap::before {
+    content: "";
+
+    position: absolute;
+
+    z-index: 1;
+
+    inset:
+        15% -12% -5%;
+
+    background:
+
+        radial-gradient(
+            circle at 8% 40%,
+            #a50000 0 2px,
+            transparent 3px
+        ),
+
+        radial-gradient(
+            circle at 17% 20%,
+            #680000 0 5px,
+            transparent 6px
+        ),
+
+        radial-gradient(
+            circle at 83% 24%,
+            #b00000 0 3px,
+            transparent 4px
+        ),
+
+        radial-gradient(
+            circle at 92% 50%,
+            #720000 0 6px,
+            transparent 7px
+        ),
+
+        radial-gradient(
+            circle at 72% 82%,
+            #8b0000 0 4px,
+            transparent 5px
+        ),
+
+        radial-gradient(
+            circle at 27% 78%,
+            #640000 0 5px,
+            transparent 6px
+        );
+
+    opacity: .9;
+
+    filter: blur(.3px);
+}
+
+.title-splatter {
+    position: absolute;
+
+    z-index: 2;
+
+    background: #7b0000;
+
+    border-radius: 50%;
+
+    filter: blur(.2px);
+}
+
+.splatter-one {
+    width: 12px;
+    height: 12px;
+
+    top: 25%;
+    left: -15px;
+
+    box-shadow:
+        18px 12px 0 2px #510000,
+        -12px 27px 0 -3px #8c0000,
+        31px -17px 0 -4px #a00000;
+}
+
+.splatter-two {
+    width: 8px;
+    height: 8px;
+
+    top: 38%;
+    right: -20px;
+
+    box-shadow:
+        -18px 15px 0 2px #6c0000,
+        -35px -12px 0 -2px #9b0000,
+        15px 22px 0 -3px #4d0000;
+}
+
+.splatter-three {
+    width: 6px;
+    height: 6px;
+
+    bottom: 5%;
+    left: 30%;
+
+    box-shadow:
+        16px 10px 0 1px #790000,
+        -20px 7px 0 -1px #a00000,
+        40px 4px 0 -2px #500000;
+}
+
+
+/* قطرات دم تحت الكلمة */
+
+.title-blood-drip {
+    position: absolute;
+
+    z-index: 4;
+
+    top: 84%;
+
+    width: 8px;
+
+    border-radius:
+        0 0 50% 50%;
+
+    background:
+        linear-gradient(
+            #b00000,
+            #480000
+        );
+
+    box-shadow:
+        0 0 8px rgba(180,0,0,.45);
+}
+
+.drip-one {
+    left: 28%;
+    height: 34px;
+}
+
+.drip-two {
+    left: 56%;
+    height: 21px;
+}
+
+.drip-three {
+    right: 21%;
+    height: 42px;
+}
+
+.hero-description {
+    color: #aaa;
+
+    margin-top: 30px;
+
+    font-size: 16px;
+}
+
+.hero-line {
+    position: absolute;
+
+    bottom: 0;
+
+    width: 70%;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(170,0,0,.7),
+            transparent
+        );
+}
+
+
+/* =====================================
+   SECTIONS
+===================================== */
+
+.section {
+    width: min(1250px, 88%);
+
+    margin: auto;
+
+    padding: 120px 0;
+
+    position: relative;
+
+    z-index: 4;
+}
+
+.dark-section {
+    width: 100%;
+
+    padding-left: 6%;
+    padding-right: 6%;
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent,
+            rgba(65,0,0,.07),
+            transparent
+        );
+}
+
+.section-heading {
+    text-align: center;
+
+    margin-bottom: 55px;
+}
+
+.section-small {
+    display: block;
+
+    color: #8e0000;
+
+    font-size: 11px;
+
+    font-weight: 900;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 8px;
+}
+
+.section-heading h2 {
+    font-size:
+        clamp(32px,4vw,50px);
+
+    font-weight: 900;
+}
+
+.section-heading h2 b {
+    color: var(--red-light);
+}
+
+.section-heading p {
+    margin-top: 8px;
+
+    color: #777;
+}
+
+
+/* =====================================
+   RANKS
+===================================== */
+
+.ranks-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 18px;
+}
+
+.rank-card {
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 28px;
+
+    min-height: 235px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(30,30,30,.85),
+            rgba(5,5,5,.88)
+        );
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 9px;
+
+    transition: .35s;
+}
+
+.rank-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    width: 100%;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #a90000
+        );
+}
+
+.rank-card:hover {
+    transform:
+        translateY(-6px);
+
+    border-color:
+        rgba(210,0,0,.5);
+
+    box-shadow:
+        0 18px 45px rgba(0,0,0,.5);
+}
+
+.rank-card.leader {
+    background:
+
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(150,0,0,.15),
+            transparent 40%
+        ),
+
+        linear-gradient(
+            145deg,
+            #171717,
+            #040404
+        );
+}
+
+.rank-number {
+    position: absolute;
+
+    left: 20px;
+    top: 18px;
+
+    color: #3a3a3a;
+
+    font-size: 12px;
+
+    font-weight: 900;
+}
+
+.rank-card h3 {
+    font-size: 19px;
+
+    margin-bottom: 4px;
+}
+
+.rank-card span {
+    color: #b40000;
+
+    font-size: 12px;
+
+    font-weight: 800;
+}
+
+.rank-card p {
+    color: #777;
+
+    font-size: 13px;
+
+    margin-top: 14px;
+
+    line-height: 1.9;
+}
+
+
+/* =====================================
+   CLOTHES
+===================================== */
+
+.clothes-grid {
+    max-width: 1250px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 20px;
+}
+
+.clothes-card {
+    overflow: hidden;
+
+    background: #080808;
+
+    border:
+        1px solid rgba(180,0,0,.22);
+
+    border-radius: 10px;
+
+    transition: .35s;
+}
+
+.clothes-card:hover {
+    transform:
+        translateY(-7px);
+
+    border-color: #9c0000;
+
+    box-shadow:
+        0 20px 55px rgba(0,0,0,.55);
+}
+
+.clothes-image {
+    height: 390px;
+
+    background:
+        radial-gradient(
+            circle,
+            #1d1d1d,
+            #050505 70%
+        );
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+.clothes-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    transition: .5s;
+
+    filter:
+        drop-shadow(
+            0 15px 30px rgba(0,0,0,.8)
+        );
+}
+
+.clothes-card:hover img {
+    transform: scale(1.04);
+}
+
+.clothes-info {
+    padding: 22px;
+
+    border-top:
+        1px solid rgba(180,0,0,.16);
+}
+
+.clothes-info span {
+    color: #650000;
+
+    font-size: 11px;
+
+    font-weight: 900;
+}
+
+.clothes-info h3 {
+    margin-top: 3px;
+
+    font-size: 20px;
+}
+
+.clothes-info p {
+    color: #777;
+
+    margin-top: 4px;
+
+    font-size: 13px;
+}
+
+
+/* =====================================
+   LAWS
+===================================== */
+
+.laws-wrapper {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 20px;
+}
+
+.law-group {
+    background:
+        rgba(8,8,8,.75);
+
+    border:
+        1px solid rgba(180,0,0,.2);
+
+    border-radius: 9px;
+
+    overflow: hidden;
+}
+
+.law-group-title {
+    padding: 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(120,0,0,.2),
+            rgba(10,10,10,.7)
+        );
+
+    border-bottom:
+        1px solid rgba(180,0,0,.15);
+}
+
+.law-group-title span {
+    color: #720000;
+
+    font-size: 10px;
+
+    font-weight: 900;
+}
+
+.law-group-title h3 {
+    margin-top: 3px;
+
+    font-size: 21px;
+}
+
+.law-list {
+    padding: 10px;
+}
+
+.law-item {
+    display: flex;
+
+    gap: 12px;
+
+    align-items: flex-start;
+
+    padding: 12px 10px;
+
+    border-bottom:
+        1px solid rgba(255,255,255,.035);
+}
+
+.law-item:last-child {
+    border-bottom: 0;
+}
+
+.law-item b {
+    min-width: 25px;
+
+    color: #a80000;
+
+    font-size: 11px;
+}
+
+.law-item p {
+    color: #aaa;
+
+    font-size: 12px;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================
+   PROMOTIONS
+===================================== */
+
+.promotion-path {
+    max-width: 1200px;
+
+    margin: 0 auto 30px;
+
+    padding: 25px;
+
+    background:
+        rgba(8,8,8,.75);
+
+    border:
+        1px solid rgba(180,0,0,.25);
+
+    border-radius: 9px;
+}
+
+.path-title {
+    color: #8f0000;
+
+    font-size: 12px;
+
+    font-weight: 900;
+
+    margin-bottom: 18px;
+}
+
+.path-box {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+}
+
+.path-box span {
+    padding: 10px 14px;
+
+    background:
+        rgba(130,0,0,.1);
+
+    border:
+        1px solid rgba(170,0,0,.2);
+
+    border-radius: 5px;
+
+    font-size: 12px;
+}
+
+.path-box i {
+    color: #900000;
+
+    font-style: normal;
+
+    font-weight: 900;
+}
+
+.promotions-grid {
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap: 18px;
+}
+
+.promotion-card {
+    padding: 27px;
+
+    background:
+        rgba(10,10,10,.8);
+
+    border:
+        1px solid rgba(180,0,0,.22);
+
+    border-radius: 9px;
+
+    transition: .3s;
+}
+
+.promotion-card:hover {
+    border-color:
+        rgba(210,0,0,.5);
+
+    transform:
+        translateY(-4px);
+}
+
+.promotion-top {
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+}
+
+.promotion-top span {
+    color: #660000;
+
+    font-size: 12px;
+
+    font-weight: 900;
+}
+
+.promotion-top h3 {
+    font-size: 18px;
+}
+
+.promotion-route {
+    color: #a40000;
+
+    font-size: 12px;
+
+    margin: 15px 0;
+
+    padding: 11px;
+
+    background:
+        rgba(130,0,0,.07);
+
+    border-right:
+        2px solid #820000;
+}
+
+.promotion-card p {
+    color: #999;
+
+    font-size: 13px;
+
+    line-height: 2;
+}
+
+.featured-promotion {
+    grid-column: 1 / -1;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 0,
+            rgba(120,0,0,.14),
+            transparent 55%
+        ),
+
+        rgba(10,10,10,.85);
+}
+
+.promotion-times {
+    max-width: 1200px;
+
+    margin: 25px auto 0;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap: 15px;
+}
+
+.time-card {
+    padding: 20px;
+
+    text-align: center;
+
+    background:
+        rgba(7,7,7,.8);
+
+    border:
+        1px solid rgba(180,0,0,.2);
+
+    border-radius: 8px;
+}
+
+.time-card span {
+    display: block;
+
+    color: #888;
+
+    font-size: 12px;
+}
+
+.time-card strong {
+    display: block;
+
+    margin-top: 6px;
+
+    color: #c00000;
+}
+
+
+/* =====================================
+   APPLICATION
+===================================== */
+
+.application-section {
+    min-height: 580px;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    border-top:
+        1px solid rgba(160,0,0,.15);
+
+    border-bottom:
+        1px solid rgba(160,0,0,.15);
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            rgba(150,0,0,.16),
+            transparent 45%
+        ),
+
+        #040404;
+}
+
+.application-section::before,
+.application-section::after {
+    content: "";
+
+    position: absolute;
+
+    width: 230px;
+    height: 230px;
+
+    background:
+        rgba(130,0,0,.1);
+
+    filter:
+        blur(80px);
+
+    border-radius: 50%;
+}
+
+.application-section::before {
+    left: 0;
+}
+
+.application-section::after {
+    right: 0;
+}
+
+.application-content {
+    position: relative;
+
+    z-index: 3;
+}
+
+.application-content h2 {
+    font-size:
+        clamp(42px,7vw,85px);
+
+    font-weight: 900;
+
+    margin: 8px 0 15px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #e90000,
+            #6d0000,
+            #080808
+        );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
+
+    filter:
+        drop-shadow(
+            0 0 20px rgba(170,0,0,.25)
+        );
+}
+
+.application-content p {
+    color: #aaa;
+
+    font-size: 15px;
+}
+
+.apply-button {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 30px;
+
+    padding: 14px 28px;
+
+    text-decoration: none;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #a90000,
+            #510000
+        );
+
+    border:
+        1px solid #b00000;
+
+    border-radius: 6px;
+
+    font-weight: 900;
+
+    transition: .3s;
+}
+
+.apply-button:hover {
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 15px 35px rgba(150,0,0,.25);
+}
+
+.apply-button span {
+    font-size: 18px;
+}
+
+
+/* =====================================
+   FOOTER
+===================================== */
+
+footer {
+    padding: 45px 20px;
+
+    text-align: center;
+
+    background: #010101;
+
+    border-top:
+        1px solid rgba(150,0,0,.15);
+}
+
+.footer-logo {
+    color: #a00000;
+
+    font-size: 22px;
+
+    font-weight: 900;
+
+    letter-spacing: 4px;
+}
+
+footer p {
+    color: #555;
+
+    font-size: 11px;
+
+    margin-top: 8px;
+}
+
+
+/* =====================================
+   MUSIC PLAYER
+===================================== */
+
+.music-player {
+    position: fixed;
+
+    left: 25px;
+    bottom: 25px;
+
+    z-index: 99999;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 10px;
+
+    background:
+        rgba(3,3,3,.94);
+
+    border:
+        1px solid rgba(180,0,0,.65);
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 0 20px rgba(120,0,0,.25),
+        inset 0 0 12px rgba(120,0,0,.08);
+
+    backdrop-filter: blur(12px);
+
+    direction: ltr;
+}
+
+.music-player button {
+    min-width: 85px;
+
+    height: 38px;
+
+    padding: 0 15px;
+
+    border:
+        1px solid #720000;
+
+    border-radius: 7px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #151515,
+            #070707
+        );
+
+    color: #eee;
+
+    font-family: 'Cairo', sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition:
+        .25s ease;
+
+    outline: none;
+}
+
+.music-player button:hover {
+    background:
+        linear-gradient(
+            145deg,
+            #9e0000,
+            #4d0000
+        );
+
+    border-color:
+        #e00000;
+
+    color: white;
+
+    box-shadow:
+        0 0 15px rgba(190,0,0,.4);
+
+    transform:
+        translateY(-2px);
+}
+
+.music-player button:active {
+    transform:
+        translateY(0);
+}
+
+
+/* =====================================
+   RESPONSIVE
+===================================== */
+
+@media (max-width: 1000px) {
+
+    .ranks-grid,
+    .clothes-grid,
+    .laws-wrapper {
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .nav-links {
+        gap: 0;
+    }
+
+    .nav-links a {
+        padding: 9px 8px;
+
+        font-size: 12px;
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    .navbar {
+        height: auto;
+
+        min-height: 70px;
+
+        flex-direction: column;
+
+        gap: 8px;
+
+        padding: 12px 15px;
+    }
+
+    .nav-links {
+        overflow-x: auto;
+
+        width: 100%;
+
+        justify-content: flex-start;
+    }
+
+    .nav-links a {
+        white-space: nowrap;
+    }
+
+    .hero {
+        padding-top: 155px;
+    }
+
+    .godfather-title {
+        font-size:
+            clamp(43px, 14vw, 70px);
+
+        letter-spacing: 2px;
+    }
+
+    .ranks-grid,
+    .clothes-grid,
+    .laws-wrapper,
+    .promotions-grid,
+    .promotion-times {
+        grid-template-columns: 1fr;
+    }
+
+    .featured-promotion {
+        grid-column: auto;
+    }
+
+    .clothes-image {
+        height: 350px;
+    }
+
+    .section {
+        width: 92%;
+
+        padding: 90px 0;
+    }
+
+    .dark-section {
+        padding-left: 4%;
+        padding-right: 4%;
+    }
+
+    .blood-edge {
+        width: 45px;
+
+        opacity: .55;
+    }
+
+    .blood-edge::before {
+        width: 40px;
+    }
+
+    .drop {
+        transform: scale(.7);
+
+        transform-origin: top;
+    }
+
+    /* مشغل الموسيقى للجوال */
+    .music-player {
+        left: 15px;
+        bottom: 15px;
+
+        padding: 8px;
+
+        gap: 6px;
+    }
+
+    .music-player button {
+        min-width: 75px;
+
+        height: 36px;
+
+        padding: 0 11px;
+
+        font-size: 12px;
+    }
+}
+
+
+@media (max-width: 430px) {
+
+    .welcome-text {
+        font-size: 10px;
+
+        letter-spacing: 5px;
+    }
+
+    .godfather-title {
+        font-size: 43px;
+    }
+
+    .section-heading h2 {
+        font-size: 30px;
+    }
+
+    .rank-card {
+        padding: 22px;
+    }
+
+    .music-player {
+        left: 10px;
+        bottom: 10px;
+    }
+
+    .music-player button {
+        min-width: 70px;
+
+        font-size: 11px;
+    }
+}
