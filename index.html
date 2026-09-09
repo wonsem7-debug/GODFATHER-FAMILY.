@@ -7,123 +7,50 @@
     <link rel="stylesheet" href="./style.css">
 
     <style>
-        /* =====================================
-           تأثير أسود وأحمر قوي — العبارات
-        ===================================== */
+        /* =========================================
+           تأثير أسود + أحمر على النصوص المطلوبة فقط
+           بدون تغيير الحجم أو المكان أو المحاذاة
+           ========================================= */
 
+        .welcome-text,
         .hero-description,
-        .application-description {
-            display: inline-block;
-            position: relative;
-            color: transparent !important;
-            font-weight: 900;
-
-            background:
-                radial-gradient(circle at 5% 30%, #000 0 5px, transparent 6px),
-                radial-gradient(circle at 11% 75%, #720000 0 4px, transparent 5px),
-                radial-gradient(circle at 18% 20%, #050505 0 7px, transparent 8px),
-                radial-gradient(circle at 25% 65%, #a00000 0 5px, transparent 6px),
-                radial-gradient(circle at 33% 35%, #000 0 4px, transparent 5px),
-                radial-gradient(circle at 41% 80%, #700000 0 7px, transparent 8px),
-                radial-gradient(circle at 49% 18%, #050505 0 5px, transparent 6px),
-                radial-gradient(circle at 57% 68%, #b00000 0 6px, transparent 7px),
-                radial-gradient(circle at 65% 30%, #000 0 7px, transparent 8px),
-                radial-gradient(circle at 73% 78%, #650000 0 5px, transparent 6px),
-                radial-gradient(circle at 81% 25%, #050505 0 6px, transparent 7px),
-                radial-gradient(circle at 89% 65%, #a00000 0 7px, transparent 8px),
-                radial-gradient(circle at 96% 30%, #000 0 5px, transparent 6px),
-                linear-gradient(
-                    90deg,
-                    #000 0%,
-                    #420000 12%,
-                    #c00000 28%,
-                    #ff1111 43%,
-                    #050505 58%,
-                    #b00000 72%,
-                    #ff2020 86%,
-                    #000 100%
-                );
-
-            background-size:
-                auto, auto, auto, auto, auto, auto, auto,
-                auto, auto, auto, auto, auto, auto,
-                100% 100%;
-
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-
+        .application-content p {
             text-shadow:
-                2px 2px 0 #000,
-                -2px -1px 0 #700000,
-                0 0 8px rgba(150,0,0,.8),
-                0 0 18px rgba(80,0,0,.5);
+                1px 1px 0 #000000,
+                -1px -1px 0 #000000,
+                2px 0 0 rgba(100, 0, 0, 0.85),
+                -2px 0 0 rgba(140, 0, 0, 0.75),
+                0 0 5px rgba(120, 0, 0, 0.45);
         }
 
-        /* بقع حول عبارة الموقع */
-        .hero-description::before,
-        .hero-description::after,
-        .application-description::before,
-        .application-description::after {
-            content: "";
-            position: absolute;
-            pointer-events: none;
-            z-index: -1;
-            border-radius: 50%;
-        }
-
-        .hero-description::before,
-        .application-description::before {
-            width: 11px;
-            height: 11px;
-            background: #000;
-            top: 5px;
-            left: 4%;
-
-            box-shadow:
-                30px 18px 0 #080808,
-                70px -10px 0 #700000,
-                115px 24px 0 #000,
-                160px -7px 0 #a00000,
-                210px 20px 0 #050505,
-                260px -12px 0 #700000,
-                315px 15px 0 #000,
-                370px -8px 0 #9b0000;
-
-            filter: blur(1px);
-        }
-
-        .hero-description::after,
-        .application-description::after {
-            width: 8px;
-            height: 8px;
-            background: #a00000;
-            bottom: -9px;
-            right: 5%;
-
-            box-shadow:
-                -35px 9px 0 #000,
-                -80px -5px 0 #700000,
-                -125px 12px 0 #000,
-                -175px -8px 0 #b00000,
-                -225px 10px 0 #050505,
-                -280px -6px 0 #700000,
-                -330px 8px 0 #000;
-
-            filter: blur(.7px);
-        }
-
-        /* =====================================
-           تأثير أقوى على نص التقديم
-        ===================================== */
-
-        .application-description {
-            letter-spacing: .3px;
+        /* WELCOME TO */
+        .welcome-text {
             text-shadow:
-                2px 2px 0 #000,
-                -2px -1px 0 #700000,
-                0 0 10px rgba(170,0,0,.85),
-                0 0 22px rgba(100,0,0,.45);
+                1px 1px 0 #000000,
+                -1px -1px 0 #000000,
+                2px 0 0 rgba(120, 0, 0, 0.9),
+                -2px 0 0 rgba(120, 0, 0, 0.7),
+                0 0 6px rgba(100, 0, 0, 0.5);
+        }
+
+        /* الموقع الرسمي لعائلة GODFATHER */
+        .hero-description {
+            text-shadow:
+                1px 1px 0 #000000,
+                -1px -1px 0 #000000,
+                2px 0 0 rgba(130, 0, 0, 0.9),
+                -2px 0 0 rgba(100, 0, 0, 0.75),
+                0 0 7px rgba(130, 0, 0, 0.5);
+        }
+
+        /* جملة التقديم */
+        .application-content p {
+            text-shadow:
+                1px 1px 0 #000000,
+                -1px -1px 0 #000000,
+                2px 0 0 rgba(130, 0, 0, 0.9),
+                -2px 0 0 rgba(100, 0, 0, 0.75),
+                0 0 7px rgba(130, 0, 0, 0.5);
         }
     </style>
 </head>
@@ -474,7 +401,7 @@
 
                     <div class="law-group-title">
                         <span>01 — 05</span>
-                        <h3>بنود مفصول من العصابات</h3>
+                        <h3>بنود</h3>
                     </div>
 
                     <div class="law-list">
@@ -491,7 +418,7 @@
 
                         <div class="law-item">
                             <b>03</b>
-                            <p>تقديم استقاله برتبة تحت BLACK LEGEND</p>
+                            <p>تقديم استقاله برتبة تحت</p>
                         </div>
 
                         <div class="law-item">
@@ -865,7 +792,7 @@
                     GODFATHER FAMILY
                 </h2>
 
-                <p class="application-description">
+                <p>
                     إذا كنت ترى نفسك مناسبًا للعائلة، يمكنك التقديم والانضمام إلئ العائله.
                 </p>
 
