@@ -5,6 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GODFATHER FAMILY</title>
     <link rel="stylesheet" href="./style.css">
+
+    <style>
+        /* تأثير أسود وأحمر قوي على عبارة الموقع الرسمي */
+        .hero-description {
+            display: inline-block;
+            position: relative;
+            color: transparent !important;
+            font-weight: 900;
+            background:
+                radial-gradient(circle at 8% 35%, #050505 0 5px, transparent 6px),
+                radial-gradient(circle at 18% 70%, #111 0 4px, transparent 5px),
+                radial-gradient(circle at 32% 20%, #000 0 7px, transparent 8px),
+                radial-gradient(circle at 48% 75%, #090909 0 5px, transparent 6px),
+                radial-gradient(circle at 63% 30%, #000 0 6px, transparent 7px),
+                radial-gradient(circle at 78% 65%, #111 0 5px, transparent 6px),
+                radial-gradient(circle at 91% 25%, #000 0 7px, transparent 8px),
+                linear-gradient(90deg, #050505 0%, #b00000 22%, #ff0000 45%, #050505 65%, #b00000 82%, #050505 100%);
+            background-size: auto, auto, auto, auto, auto, auto, auto, 100% 100%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            text-shadow:
+                2px 2px 0 #050505,
+                -2px -1px 0 #700000,
+                0 0 12px rgba(150, 0, 0, 0.8);
+        }
+
+        .hero-description::before,
+        .hero-description::after {
+            content: "";
+            position: absolute;
+            pointer-events: none;
+            z-index: -1;
+            border-radius: 50%;
+        }
+
+        .hero-description::before {
+            width: 12px;
+            height: 12px;
+            background: #050505;
+            top: 8px;
+            left: 12%;
+            box-shadow:
+                35px 18px 0 #090909,
+                85px -8px 0 #000,
+                145px 20px 0 #111,
+                205px -12px 0 #050505,
+                260px 16px 0 #000;
+            filter: blur(1px);
+        }
+
+        .hero-description::after {
+            width: 8px;
+            height: 8px;
+            background: #a00000;
+            bottom: -8px;
+            right: 15%;
+            box-shadow:
+                -35px 8px 0 #700000,
+                -90px -4px 0 #b00000,
+                -150px 10px 0 #500000;
+        }
+    </style>
 </head>
 
 <body>
@@ -353,7 +415,7 @@
 
                     <div class="law-group-title">
                         <span>01 — 05</span>
-                        <h3>بنود</h3>
+                        <h3>بنود مفصول من العصابات</h3>
                     </div>
 
                     <div class="law-list">
@@ -370,7 +432,7 @@
 
                         <div class="law-item">
                             <b>03</b>
-                            <p>تقديم استقاله برتبة تحت</p>
+                            <p>تقديم استقاله برتبة تحت BLACK LEGEND</p>
                         </div>
 
                         <div class="law-item">
@@ -745,7 +807,7 @@
                 </h2>
 
                 <p>
-                    إذا كنت ترى نفسك مناسبًا للعائلة، يمكنك التقديم والانضمام إلينا.
+                    إذا كنت ترى نفسك مناسبًا للعائلة، يمكنك التقديم والانضمام إلئ العائله.
                 </p>
 
                 <a
