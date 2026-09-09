@@ -297,6 +297,13 @@ body {
     letter-spacing: 8px;
 
     margin-bottom: 12px;
+
+    /* التعديل المطلوب فقط */
+    text-shadow:
+        1px 1px 0 #000000,
+        -1px -1px 0 #000000,
+        0 0 5px rgba(150,0,0,.95),
+        0 0 10px rgba(100,0,0,.7);
 }
 
 .hero-title-wrap {
@@ -500,6 +507,13 @@ body {
     margin-top: 30px;
 
     font-size: 16px;
+
+    /* التعديل المطلوب فقط */
+    text-shadow:
+        1px 1px 0 #000000,
+        -1px -1px 0 #000000,
+        0 0 5px rgba(150,0,0,.9),
+        0 0 10px rgba(100,0,0,.65);
 }
 
 .hero-line {
@@ -1208,6 +1222,13 @@ body {
     color: #aaa;
 
     font-size: 15px;
+
+    /* التعديل المطلوب فقط */
+    text-shadow:
+        1px 1px 0 #000000,
+        -1px -1px 0 #000000,
+        0 0 5px rgba(150,0,0,.9),
+        0 0 10px rgba(100,0,0,.65);
 }
 
 .apply-button {
